@@ -7,7 +7,13 @@ function hasWhiteSpace(s) {
   function Email(e) {
     return /^\S+@\S+\.\S+$/.test(e);
   
-  }  
+  } 
+
+require('./db/server').connect(err => {
+    if (err) throw err;
+    console.log('Database connected.');
+    employee_tracker();
+});
 
 const questions =
 [
